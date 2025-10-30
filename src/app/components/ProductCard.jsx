@@ -2,3 +2,9 @@
 
 'use client'
 
+export default function ProductCard({[ProductCard, onAdd]}) {
+    const outOfStock=ProductCard.stock <=0;
+    return (
+        
+    )
+}

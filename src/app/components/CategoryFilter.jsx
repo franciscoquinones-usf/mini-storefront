@@ -2,3 +2,8 @@
 
 'use client'
 
+export default function CategoryFilter({categories = [], value, onChange}) {
+    return( 
+        
+    )
+}
