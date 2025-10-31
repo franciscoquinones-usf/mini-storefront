@@ -2,7 +2,7 @@
 
 'use client'
 
-import {useState, useEffect}, from 'react';
+import {useState, useEffect} from 'react';
 export default function PriceFilter({maxAvailable=500, value, onChange}) { 
     const [local, setLocal] = useState(value || maxAvailable);
 
@@ -11,6 +11,14 @@ export default function PriceFilter({maxAvailable=500, value, onChange}) {
     }, [value]);
 
     return ( 
-
+        <div>
+            <label>Max Price: ${local}</label>
+            <input type="range" min="0" max={maxAvailable} step="1" value={local} onChange={(e) => {
+                const v =Number(e.target.value);
+                setLocal(v);
+                onChange(v);
+            }}
+            />
+        </div>
     )
 }
