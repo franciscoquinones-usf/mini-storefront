@@ -8,3 +8,4 @@ import CategoryFilter from './CategoryFilter';
 import PriceFilter from './PriceFilter';
 import CartSummary from './CartSummary';
 import StatusMessage from './StatusMessage';
+
