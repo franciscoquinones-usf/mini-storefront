@@ -6,7 +6,7 @@ export default function Page() {
       <div>
         <header>
           <h1>Mini Storefront</h1>
-          <p>Sample paragraph</p>
+          <p>For demonstration purposes, stock levels update randomly every 20 seconds.</p>
         </header>
         <Catalog/>
       </div>
