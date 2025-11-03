@@ -116,6 +116,7 @@ export default function Catalog () {
   }
 
   const categories = ['All', ...Array.from(new Set(originalProducts.map(p => p.category)))];
+  
   const maxAvailableForCategory = category === 'All'
   ? originalProducts.reduce((m, p) => Math.max(m, p.price), 0)
   : originalProducts
@@ -124,23 +125,28 @@ export default function Catalog () {
 
 
   return (
-    <section>
-      <div>
-        <aside>
-          <div>
-            <CategoryFilter categories={categories} value={category} onChange={setCategory}/>
-            <PriceFilter maxAvailable={maxAvailableForCategory || 1000} value={maxPrice} onChange={setMaxPrice}/>
-            <CartSummary cart={cart} onDecrement={decrementItem} onReset={resetCart}/>
-          </div>
-        </aside>
+  <section className="p-6">
+    <div className="bg-white shadow-md rounded-lg p-4 mb-8 border border-gray-200">
+      <h1 className="text-2xl font-bold mb-4 text-center">Mini Storefront</h1>
 
-        <div>
-          <StatusMessage loading={loading} error={error} empty={!loading && filtered.length === 0}/>
-          {!loading && !error && filtered.length > 0 && (
-            <ProductList products={filtered} onAdd={addToCart}/>
-          )}
+      <div className="flex flex-wrap justify-between items-start gap-6">
+        <div className="flex flex-col gap-4 w-full sm:w-auto">
+          <CategoryFilter categories={categories} value={category} onChange={setCategory}/>
+          <PriceFilter maxAvailable={maxAvailableForCategory || 1000} value={maxPrice} onChange={setMaxPrice}/>
+        </div>
+
+        <div className="w-full sm:w-auto">
+          <CartSummary cart={cart} onDecrement={decrementItem} onReset={resetCart}/>
         </div>
       </div>
-    </section>
-  );
-}
+      <p className="text-sm text-gray-500 mt-4 italic"> * For demonstration purposes, product stock changes randomly every 20 seconds.</p>
+    </div>
+
+    <div>
+      <StatusMessage loading={loading} error={error} empty={!loading && filtered.length === 0}/>
+      {!loading && !error && filtered.length > 0 && (
+        <ProductList products={filtered} onAdd={addToCart}/>
+      )}
+    </div>
+  </section>
+)}

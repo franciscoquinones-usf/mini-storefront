@@ -5,7 +5,6 @@
 import {useState, useEffect} from 'react';
 export default function PriceFilter({maxAvailable=500, value, onChange}) { 
     const [local, setLocal] = useState(value || maxAvailable);
-
     useEffect(() => {
         setLocal(value);
     }, [value]);
