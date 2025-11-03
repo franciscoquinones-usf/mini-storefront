@@ -133,9 +133,6 @@ export default function Catalog () {
         <div className="flex flex-col gap-4 w-full sm:w-auto">
           <CategoryFilter categories={categories} value={category} onChange={setCategory}/>
           <PriceFilter maxAvailable={maxAvailableForCategory || 1000} value={maxPrice} onChange={setMaxPrice}/>
-        </div>
-
-        <div className="w-full sm:w-auto">
           <CartSummary cart={cart} onDecrement={decrementItem} onReset={resetCart}/>
         </div>
       </div>
